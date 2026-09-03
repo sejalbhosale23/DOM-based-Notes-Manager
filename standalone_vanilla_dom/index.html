@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Based Notes Manager Assignment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div className="container" id="app">
+        <header className="header">
+            <h1>DOM-Based Notes Manager</h1>
+            <p>Interactive Notes Manager built with JavaScript DOM methods</p>
+        </header>
+
+        <main className="main-content">
+            <!-- Input Section -->
+            <section className="form-section">
+                <h2>Add New Note</h2>
+                <div className="input-group">
+                    <label for="note-text">Note Description:</label>
+                    <input type="text" id="note-text" placeholder="Enter note content..." autocomplete="off">
+                </div>
+
+                <div className="checkbox-group">
+                    <input type="checkbox" id="note-important">
+                    <label for="note-important">Mark as Important</label>
+                </div>
+
+                <button id="add-note-btn" type="button">Add Note</button>
+            </section>
+
+            <!-- Display Section -->
+            <section className="display-section">
+                <div className="stats-bar">
+                    <span>Total Notes: <strong id="total-notes-count">0</strong></span>
+                </div>
+
+                <div id="notes-container" className="notes-list">
+                    <!-- Dynamic notes will be appended here using DOM methods -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
