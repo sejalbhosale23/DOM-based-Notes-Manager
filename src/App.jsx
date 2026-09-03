@@ -8,7 +8,9 @@ import { loadNotes, saveNotes } from './utils/storage';
 import { StickyNote, CheckCircle } from 'lucide-react';
 
 export function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('notes_app_theme') || 'dark';
+  });
   const [notes, setNotes] = useState(() => loadNotes());
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
@@ -21,9 +23,10 @@ export function App() {
     saveNotes(notes);
   }, [notes]);
 
-  // Set html attribute for theme
+  // Set html attribute for theme & persist preference
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('notes_app_theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
